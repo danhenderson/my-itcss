@@ -1,0 +1,28 @@
+{
+  "name": "my-itcss",
+  "version": "0.0.1",
+  "description": "- A meta-framework (a framework for frameworks) created by Harry Roberts - Inverted Triangle achitecture for CSS - A sane, scalable, managed architecture",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danhenderson/my-itcss.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/danhenderson/my-itcss/issues"
+  },
+  "homepage": "https://github.com/danhenderson/my-itcss#readme",
+  "devDependencies": {
+    "gulp": "^3.9.0",
+    "gulp-minify-css": "^1.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-sass": "^2.1.0",
+    "node-normalize-scss": "^1.0.3",
+    "node-reset-scss": "^1.0.1",
+    "sc5-styleguide": "^0.3.37"
+  }
+}

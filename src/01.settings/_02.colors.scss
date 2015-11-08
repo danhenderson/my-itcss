@@ -1,0 +1,33 @@
+// Settings: Colors
+//
+// Colors are stored here in a multi-dimensional array, with the following structure:
+// - Group: the group is a grouping of similar colors e.g. primary, secondary, foreground etc.
+// - Variations: these are the actual variations of the color group e.g. primary-dark etc.
+//
+// Styleguide 1.2
+
+$colors: (
+  primary: (
+    default:  #ff0000,
+    dark:     #770000,
+    light:    #ff7777
+  ),
+  secondary: (
+    default:  #00ff00,
+    dark:     #007700,
+    light:    #77ff77
+  ),
+  tertiary: (
+    default:  #0000ff,
+    dark:     #000077,
+    light:    #7777ff
+  ),
+  foreground: (
+    default:  #ffffff,
+    dark:     #cccccc
+  ),
+  background: (
+    default:  #000000,
+    light:    #333333
+  )
+);

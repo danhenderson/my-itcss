@@ -1,0 +1,27 @@
+// Trumps: Colors: Utilities
+//
+// These are utility classes for easily applying a background color or a color to an element.
+// These are generated based on the $color array from settings (see Tools: Colors)
+//
+// Styleguide 7.1.1
+
+@each $grpName, $group in $colors {
+  @each $varName, $variation in $group {
+    .bg--#{$grpName}-#{$varName} {
+      background-color: $variation;
+    }
+    .fg--#{$grpName}-#{$varName} {
+      color: $variation;
+    }
+
+    // if default, create another without the variation modifier
+    @if $varName == "default" {
+      .bg--#{$grpName} {
+        background-color: $variation;
+      }
+      .fg--#{$grpName} {
+        color: $variation;
+      }
+    }
+  }
+}

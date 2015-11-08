@@ -1,0 +1,12 @@
+// Settings: General
+//
+// There are many third party tools and other options available, and here is where we can specify which we want to use.
+// The $settings array specifies each available, and we can simply set true or false for each
+//
+// Styleguide 1.1
+
+$settings: (
+  reset: false,
+  normalize: true,
+  box-sizing: true
+);

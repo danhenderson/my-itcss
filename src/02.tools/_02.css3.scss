@@ -1,0 +1,14 @@
+// Tools: CSS3: Box Sizing
+//
+// A mixin to apply cross browser box-sizing property
+//
+// Example usage:
+// @include box-sizing(border-box)
+//
+// Styleguide 2.2.1
+
+@mixin box-sizing($size: border-box) {
+  -webkit-box-sizing: $size;
+     -moz-box-sizing: $size;
+          box-sizing: $size;
+}

@@ -1,0 +1,22 @@
+// Tools: Colors: Color
+//
+// A function to get a color from our colors array (see Tools: Colors)
+// - group: the group you want to get the color from
+// - variation: the variation of the color (default: default)
+//
+// Example usage:
+// background-color: color(primary, dark);
+//
+// Styleguide 2.3.1
+
+@function color($group, $variation: default) {
+  @if (map-has-key($colors, $group)) {
+    $groupColors: map-get($colors, $group);
+    @if (map-has-key($groupColors, $variation)) {
+      @return map-get($groupColors, $variation);
+    }
+  }
+
+  @warn "Unknown color requested - group = `#{$group}`, variation = `#{$variation}` ";
+  @return null;
+}

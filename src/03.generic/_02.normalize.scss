@@ -1,0 +1,13 @@
+// Generic: Normalize
+//
+// Normalize CSS is available to use simply by enabling it in Settings: General
+//
+// Styleguide 3.2
+
+@if map-has-key($settings, normalize) {
+  @if (map-get($settings, normalize)) {
+    @import "normalize";
+  }
+} @else {
+  @warn "Settings variable not found - normalize";
+}

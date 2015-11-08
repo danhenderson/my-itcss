@@ -1,0 +1,15 @@
+// Generic: Box Sizing
+//
+// We can set box-sizing: border-box on all elements, simply by enabling it in Settings: General
+//
+// Styleguide 3.3
+
+@if map-has-key($settings, box-sizing) {
+  @if (map-get($settings, box-sizing)) {
+    * {
+      @include box-sizing(border-box);
+    }
+  }
+} @else {
+  @warn "Settings variable not found - box-sizing";
+}

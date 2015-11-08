@@ -1,0 +1,13 @@
+// Generic: Reset
+//
+// CSS Reset is available to use simply by enabling it in Settings: General
+//
+// Styleguide 3.1
+
+@if map-has-key($settings, reset) {
+  @if (map-get($settings, reset)) {
+    @import "reset";
+  }
+} @else {
+  @warn "Settings variable not found - reset";
+}

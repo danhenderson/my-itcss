@@ -5,23 +5,31 @@
 //
 // Styleguide 7.1.1
 
-@each $grpName, $group in $colors {
-  @each $varName, $variation in $group {
-    .bg--#{$grpName}-#{$varName} {
-      background-color: $variation;
-    }
-    .fg--#{$grpName}-#{$varName} {
-      color: $variation;
+@if map-has-key($settings, color-trumps) {
+  @if (map-get($settings, color-trumps)) {
+
+    @each $grpName, $group in $colors {
+      @each $varName, $variation in $group {
+        .bg--#{$grpName}-#{$varName} {
+          background-color: $variation;
+        }
+        .fg--#{$grpName}-#{$varName} {
+          color: $variation;
+        }
+
+        // if default, create another without the variation modifier
+        @if $varName == "default" {
+          .bg--#{$grpName} {
+            background-color: $variation;
+          }
+          .fg--#{$grpName} {
+            color: $variation;
+          }
+        }
+      }
     }
 
-    // if default, create another without the variation modifier
-    @if $varName == "default" {
-      .bg--#{$grpName} {
-        background-color: $variation;
-      }
-      .fg--#{$grpName} {
-        color: $variation;
-      }
-    }
   }
+} @else {
+  @warn "Settings variable not found - color-trumps";
 }

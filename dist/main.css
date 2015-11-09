@@ -358,6 +358,9 @@ th {
   -moz-box-sizing: border-box;
   box-sizing: border-box; }
 
+body {
+  font-family: Helvetica, Arial, sans-serif; }
+
 .bg--primary-default {
   background-color: #ff0000; }
 

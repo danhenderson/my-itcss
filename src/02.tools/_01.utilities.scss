@@ -1,0 +1,30 @@
+// Tools: Utilities: Inline Block
+//
+// A mixin to include inline block styles. Depending on browser support, we can get away with just the single declaration
+//
+// Example usage:
+// @include inline-block;
+//
+// Styleguide 2.1.1
+
+@mixin inline-block {
+  display: inline-block;
+}
+
+
+// Tools: Utilities: Clearfix
+//
+// A mixin to include clearfix
+//
+// Example usage:
+// @include clearfix;
+//
+// Styleguide 2.1.2
+
+@mixin clearfix {
+  &:after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}

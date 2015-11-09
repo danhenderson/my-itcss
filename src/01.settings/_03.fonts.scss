@@ -1,0 +1,25 @@
+// Settings: Fonts
+//
+// Font stacks are stored here in array.
+// We also store any fonts we need to import here
+// @todo work on a better way to include fonts
+//
+// Styleguide 1.3
+
+$fonts: (
+  body: (
+    Helvetica,
+    Arial,
+    sans-serif
+  ),
+  heading: (
+    "Raleway Slab",
+    Helvetica,
+    Arial,
+    sans-serif
+  )
+);
+
+$font_imports: (
+  "url(https://fonts.googleapis.com/css?family=Roboto+Slab:400,700);"
+);

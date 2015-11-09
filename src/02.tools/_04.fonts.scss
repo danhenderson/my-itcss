@@ -1,0 +1,58 @@
+// Tools: Fonts: Font Stack
+//
+// A mixin to include one of the stored font stacks (see Settings: Fonts)
+//
+// Example usage:
+// @include font-stack(body);
+//
+// Styleguide 2.4.1
+
+@mixin font-stack($stack: body) {
+  @if (map-has-key($fonts, $stack)) {
+    $fontStack: map-get($fonts, $stack);
+    $final:;
+    @each $font in $fontStack {
+      $final: $final, $font;
+    }
+    font-family: $final;
+  } @else {
+    @warn "Unknown font stack requested - stack = `#{$stack}`";
+    @return null;
+  }
+}
+
+
+// Tools: Fonts: Font Size
+//
+// A mixin to include a specific font size and optional line height
+//
+// Example usage:
+// @include font-size(14px, 1.45);
+//
+// Styleguide 2.4.2
+
+@mixin font-size($size, $lineHeight: false) {
+  @if $size { font-size: $size; }
+  @if $lineHeight { line-height: $lineHeight; }
+}
+
+// Tools: Fonts: Font
+//
+// An all in one mixin for fonts, with the following parameters
+// stack
+// size
+// lineHeight
+// weight
+// style
+//
+// Example usage:
+// @include font(heading, 14px, 1.45, 700, italic);
+//
+// Styleguide 2.4.3
+
+@mixin font($stack: false, $size: false, $lineHeight: false, $weight: false, $style: false) {
+  @include font-stack($stack);
+  @include font-size($size, $line-height);
+  @if $weight { font-weight: $weight; }
+  @if $style { font-style: $style; }
+}

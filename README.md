@@ -4,6 +4,7 @@ Source Directory and a Dist Directory
 Gulp and Sass
 Reset/Normalize, Bootstrap, Font Awesome etc.
 For now, just one file, but could look at breaking that up
+Print
 
 
 

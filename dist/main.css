@@ -1,3 +1,7 @@
+@media (min-width: 480px) {
+  body {
+    margin: 100px; } }
+
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
 /**
  * 1. Set default font family to sans-serif.

@@ -1,0 +1,21 @@
+// Tools: Media Queries
+//
+// Our media query mixins.
+//
+// Example Usage:
+// @include mq-min($mq-xs) { ... }
+// @include mq-max($mq-lg) { ... }
+//
+// Styleguide 1.5
+
+@mixin mq-min($size) {
+  @media (min-width: #{$size}) {
+    @content;
+  }
+}
+
+@mixin mq-max($size) {
+  @media (max-width: #{$size}) {
+    @content;
+  }
+}

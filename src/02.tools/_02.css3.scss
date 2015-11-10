@@ -1,3 +1,125 @@
+// Tools: CSS3: Vendor Prefix
+//
+// Apply generic vendor prefixes to a property
+//
+// Example usage:
+// @include vendor-prefix(box-sizing, cover)
+//
+// Styleguide 2.2.1
+
+@mixin vendor-prefix($property, $value) {
+  -webkit-#{$property}: #{$value};
+   -khtml-#{$property}: #{$value};
+     -moz-#{$property}: #{$value};
+      -ms-#{$property}: #{$value};
+       -o-#{$property}: #{$value};
+          #{$property}: #{$value};
+}
+
+
+// Tools: CSS3: Background Gradient
+//
+// Apply a simple background gradient to an element
+//
+// Example usage:
+// @include background-gradient(#000, #333)
+//
+// Styleguide 2.2.2
+
+@mixin background-gradient($startColor, $endColor) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, left bottom, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(top, $startColor, $endColor);
+  background-image:    -moz-linear-gradient(top, $startColor, $endColor);
+  background-image:     -ms-linear-gradient(top, $startColor, $endColor);
+  background-image:      -o-linear-gradient(top, $startColor, $endColor);
+  background-image:         linear-gradient(top, $startColor, $endColor);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}');
+}
+
+
+// Tools: CSS3: Horizontal Background Gradient
+//
+// Apply a simple horizontal background gradient to an element
+//
+// Example usage:
+// @include background-horizontal(#000, #333)
+//
+// Styleguide 2.2.3
+
+@mixin background-horizontal($startColor, $endColor) {
+  background-color: $startColor;
+  background-image: -webkit-gradient(linear, left top, right top, from($startColor), to($endColor));
+  background-image: -webkit-linear-gradient(left, $startColor, $endColor);
+  background-image:    -moz-linear-gradient(left, $startColor, $endColor);
+  background-image:     -ms-linear-gradient(left, $startColor, $endColor);
+  background-image:      -o-linear-gradient(left, $startColor, $endColor);
+  background-image:         linear-gradient(left, $startColor, $endColor);
+  filter:            progid:DXImageTransform.Microsoft.gradient(startColorStr='#{$startColor}', endColorStr='#{$endColor}', gradientType='1');
+}
+
+
+// Tools: CSS3: Radial Background Gradient
+//
+// Apply a simple radial background gradient to an element
+//
+// Example usage:
+// @include background-radial(#fff, 0%, #000, 100%)
+//
+// Styleguide 2.2.4
+
+@mixin background-radial($startColor: #fff, $startPos: 0%, $endColor: #000, $endPos:100%) {
+  background: -moz-radial-gradient(center, ellipse cover, $startColor $startPos, $endColor $endPos);
+  background: -webkit-gradient(radial, center center, 0px, center center, 100%, color-stop($startPos,$startColor), color-stop($endPos,$endColor));
+  background: -webkit-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: -o-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: -ms-radial-gradient(center, ellipse cover, $startColor $startPos,$endColor $endPos);
+  background: radial-gradient(ellipse at center, $startColor $startPos,$endColor $endPos);
+}
+
+
+// Tools: CSS3: Background Size
+//
+// A mixin to set the background size of an element
+//
+// Example usage:
+// @include background-size(contain)
+//
+// Styleguide 2.2.5
+
+@mixin background-size($size: cover) {
+  @include vendor-prefix(background-size, $size);
+}
+
+
+// Tools: CSS3: Border Radius
+//
+// A mixin to apply a border radius
+//
+// Example usage:
+// @include border-radius(10px)
+//
+// Styleguide 2.2.6
+
+@mixin border-radius($radius) {
+  @include vendor-prefix('border-radius', $radius);
+}
+
+
+// Tools: CSS3: Box Shadow
+//
+// A mixin to apply box shadow
+//
+// Example usage:
+// @include box-shadow($shadow)
+//
+// Styleguide 2.2.7
+
+@mixin box-shadow($shadow) {
+  @include vendor-prefix('box-shadow', $shadow);
+}
+
+
 // Tools: CSS3: Box Sizing
 //
 // A mixin to apply cross browser box-sizing property
@@ -5,10 +127,119 @@
 // Example usage:
 // @include box-sizing(border-box)
 //
-// Styleguide 2.2.1
+// Styleguide 2.2.8
 
 @mixin box-sizing($size: border-box) {
-  -webkit-box-sizing: $size;
-     -moz-box-sizing: $size;
-          box-sizing: $size;
+  @include vendor-prefix(box-sizing, $size);
+}
+
+
+// Tools: CSS3: Opacity
+//
+// A mixin to apply opacity
+//
+// Example usage:
+// @include opacity(0,5)
+//
+// Styleguide 2.2.9
+
+@mixin opacity($opacity: 0.5) {
+  $msOpacity: ($opacity * 100);
+  filter: alpha(opacity=$msOpacity);
+  -ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=" + $msOpacity + ")";
+  @include vendor-prefix('opacity', $opacity);
+}
+
+
+// Tools: CSS3: Text Shadow
+//
+// A mixin to apply text shadow
+//
+// Example usage:
+// @include text-shadow(1px 1px rgba(0, 0, 0, 0.25));
+//
+// Styleguide 2.2.10
+
+@mixin text-shadow($shadow) {
+  text-shadow: $shadow;
+}
+
+
+// Tools: CSS3: Transform
+//
+// A mixin to apply a transform
+//
+// Styleguide 2.2.11
+
+@mixin transform($params) {
+  @include vendor-prefix('transform', $params);
+}
+
+
+// Tools: CSS3: Transform Origin
+//
+// A mixin to apply a transform origin
+//
+// Styleguide 2.2.12
+
+@mixin transform-origin($params) {
+  @include vendor-prefix('transform-origin', $params);
+}
+
+
+// Tools: CSS3: Transform Style
+//
+// A mixin to apply a transform
+//
+// Styleguide 2.2.13
+
+@mixin transform-style($style: preserve-3d) {
+  @include vendor-prefix('transform-style', $style);
+}
+
+
+// Tools: CSS3: Transition
+//
+// A mixin to apply a transition
+//
+// Styleguide 2.2.14
+
+@mixin transition($properties...) {
+  @include vendor-prefix('transition', $properties);
+}
+
+
+// Tools: CSS3: Keyframes
+//
+// A mixin to apply a keyframe animations
+//
+// Styleguide 2.2.15
+
+@mixin keyframes($animation-name) {
+  @-webkit-keyframes #{$animation-name} {
+    @content;
+  }
+  @-moz-keyframes #{$animation-name} {
+    @content;
+  }
+  @-ms-keyframes #{$animation-name} {
+    @content;
+  }
+  @-o-keyframes #{$animation-name} {
+    @content;
+  }
+  @keyframes #{$animation-name} {
+    @content;
+  }
+}
+
+
+// Tools: CSS3: Animation
+//
+// A mixin to apply a animation
+//
+// Styleguide 2.2.16
+
+@mixin animation($str) {
+  @include vendor-prefix('animation', $str);
 }

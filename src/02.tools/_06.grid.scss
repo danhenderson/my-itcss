@@ -1,0 +1,40 @@
+// @todo documentation
+
+@mixin make-grid-basics {
+  $list: "";
+  @for $i from 1 through $grid-columns {
+    @each $key, $size in $media-queries {
+      $list: "#{$list}, .col-#{$key}-#{$i}";
+    }
+  }
+  #{$list} {
+    float: left;
+    min-height: 1px;
+    padding-left: $grid-gutter;
+    padding-right: $grid-gutter;
+  }
+}
+
+@mixin make-grid {
+  @each $key, $size in $media-queries {
+    @include mq_min($key) {
+      @for $i from 1 through $grid-columns {
+        .col-#{$key}-#{$i} {
+          width: percentage(($i / $grid-columns));
+        }
+      }
+    }
+  }
+}
+
+@mixin make-grid-offsets {
+  @each $key, $size in $media-queries {
+    @include mq_min($key) {
+      @for $i from 1 through $grid-columns {
+        .col-#{$key}-offset-#{$i} {
+          margin-left: percentage(($i / $grid-columns));
+        }
+      }
+    }
+  }
+}

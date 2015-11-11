@@ -9,13 +9,21 @@
 // Styleguide 1.5
 
 @mixin mq-min($size) {
-  @media (min-width: #{$size}) {
-    @content;
+  @if (map-has-key($media-queries, $size)) {
+    @media (min-width: #{map-get($media-queries, $size)}) {
+      @content
+    }
+  } @else {
+    @warn "Unknown media query requested - size = `#{$size}`";
   }
 }
 
 @mixin mq-max($size) {
-  @media (max-width: #{$size}) {
-    @content;
+  @if (map-has-key($media-queries, $size)) {
+    @media (max-width: #{map-get($media-queries, $size)}) {
+      @content
+    }
+  } @else {
+    @warn "Unknown media query requested - size = `#{$size}`";
   }
 }

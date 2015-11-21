@@ -8,12 +8,11 @@
 // Styleguide 2.2.1
 
 @mixin vendor-prefix($property, $value) {
-  -webkit-#{$property}: #{$value};
-   -khtml-#{$property}: #{$value};
-     -moz-#{$property}: #{$value};
-      -ms-#{$property}: #{$value};
-       -o-#{$property}: #{$value};
-          #{$property}: #{$value};
+  // styleguide:ignore:start
+  @each $vendor in ('-webkit-', '-moz-', '-ms-', '-o-', '') {
+    #{$vendor}#{$property}: #{$value};
+  }
+  // styleguide:ignore:end
 }
 
 

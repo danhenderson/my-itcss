@@ -10,9 +10,14 @@
 @mixin font-stack($stack: body) {
   @if (map-has-key($fonts, $stack)) {
     $fontStack: map-get($fonts, $stack);
-    $final:;
+    $final:"";
     @each $font in $fontStack {
-      $final: $final, $font;
+      $i: index($fontStack, $font);
+      @if $i == 1 {
+        $final: $font;
+      } @else {
+        $final: $final, $font;
+      }
     }
     font-family: $final;
   } @else {

@@ -1,10 +1,19 @@
-// @todo documentation
+// Tools: Grid
+//
+// Some utility mixins for creating a grid
+//
+// Styleguide 1.6
+
 
 @mixin make-grid-basics {
   $list: "";
   @for $i from 1 through $grid-columns {
     @each $key, $size in $media-queries {
-      $list: "#{$list}, .col-#{$key}-#{$i}";
+      @if $list == "" {
+        $list: ".col-#{$key}-#{$i}";
+      } @else {
+        $list: "#{$list}, .col-#{$key}-#{$i}";
+      }
     }
   }
   #{$list} {

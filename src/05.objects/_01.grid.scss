@@ -1,4 +1,17 @@
-// @todo documentation
+// Objects: Grid
+//
+// This is where our grid framework is created
+//
+// markup:
+// <div class="container">
+//  <div class="row">
+//   <div class="col-xs-12 col-sm-6 col-md-4">Left Column</div>
+//   <div class="col-xs-12 col-sm-6 col-md-4 col-md-offset-4">Right Column (w/ offset)</div>
+//  </div>
+// </div>
+//
+// Styleguide 5.1
+
 
 .container {
   padding-left: $grid-gutter;

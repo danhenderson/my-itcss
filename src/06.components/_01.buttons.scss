@@ -1,0 +1,22 @@
+// Components: Button
+//
+// Our buttons are created here
+//
+// markup:
+// <a href="#" class="btn btn--primary">Primary Color Button</a>
+//
+//
+// Styleguide 6.1
+
+.btn {
+  @include inline-block;
+  padding: 5px 15px;
+  text-decoration: none;
+  color: color(foreground);
+}
+
+@each $grpName, $group in $colors {
+  .btn--#{$grpName} {
+    background-color: color($grpName);
+  }
+}

@@ -1,13 +1,3 @@
-# Planning
-
-Source Directory and a Dist Directory
-Gulp and Sass
-Reset/Normalize, Bootstrap, Font Awesome etc.
-For now, just one file, but could look at breaking that up
-Print
-
-
-
 # ITCSS
 - A meta-framework (a framework for frameworks) created by Harry Roberts
 - Inverted Triangle achitecture for CSS

@@ -6,5 +6,5 @@
 
 
 body {
-  @include font-stack(body);
+  @include font(body, map-get($settings, font-size), 1.425);
 }

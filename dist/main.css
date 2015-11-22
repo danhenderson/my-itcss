@@ -361,7 +361,9 @@ th {
   box-sizing: border-box; }
 
 body {
-  font-family: Helvetica, Arial, sans-serif; }
+  font-family: Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.425; }
 
 .container {
   padding-left: 15px;
@@ -592,6 +594,7 @@ body {
 .btn {
   display: inline-block;
   padding: 5px 15px;
+  text-decoration: none;
   color: #ffffff; }
 
 .btn--primary {
@@ -608,6 +611,10 @@ body {
 
 .btn--background {
   background-color: #000000; }
+
+@media print {
+  .print-hidden {
+    display: none; } }
 
 .bg--primary-default {
   background-color: #ff0000; }

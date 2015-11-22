@@ -57,7 +57,7 @@
 
 @mixin font($stack: false, $size: false, $lineHeight: false, $weight: false, $style: false) {
   @include font-stack($stack);
-  @include font-size($size, $line-height);
+  @include font-size($size, $lineHeight);
   @if $weight { font-weight: $weight; }
   @if $style { font-style: $style; }
 }

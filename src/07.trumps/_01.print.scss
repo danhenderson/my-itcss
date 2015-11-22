@@ -1,0 +1,13 @@
+// Trumps: Print
+//
+// We can manually hide an item when printing.
+// Note that print styles for individual components and other elements should be included in their relevant files.
+//
+// Markup:
+// <div class="print-hidden">I won't print</div>
+//
+// Styleguide 7.1
+
+@media print {
+  .print-hidden { display: none; }
+}

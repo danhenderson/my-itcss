@@ -3,7 +3,7 @@
 // These are utility classes for easily applying a background color or a color to an element.
 // These are generated based on the $color array from settings (see Tools: Colors)
 //
-// Styleguide 7.1.1
+// Styleguide 7.2.1
 
 @if map-has-key($settings, color-trumps) {
   @if (map-get($settings, color-trumps)) {
